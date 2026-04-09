@@ -8,17 +8,20 @@ export default function Landing() {
   const [showRegister, setShowRegister] = useState(false);
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
   const { login, register } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
     try {
       await login(formData.email, formData.password);
       navigate('/dashboard');
     } catch (err) {
       console.error(err);
+      setError(err.response?.data?.message || 'Không thể kết nối đến server. Vui lòng kiểm tra VITE_API_URL');
     }
     setIsLoading(false);
   };
@@ -26,11 +29,13 @@ export default function Landing() {
   const handleRegister = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
     try {
       await register(formData.username, formData.email, formData.password);
       navigate('/dashboard');
     } catch (err) {
       console.error(err);
+      setError(err.response?.data?.message || 'Không thể tạo tài khoản. Vui lòng thử lại.');
     }
     setIsLoading(false);
   };
@@ -38,6 +43,7 @@ export default function Landing() {
   const closeModals = () => {
     setShowLogin(false);
     setShowRegister(false);
+    setError('');
     setFormData({ username: '', email: '', password: '' });
   };
 
@@ -180,6 +186,11 @@ export default function Landing() {
             <p style={{ color: 'var(--text-muted)', marginBottom: 'var(--space-6)', fontSize: 'var(--fs-sm)' }}>
               Chào mừng bạn trở lại! 👋
             </p>
+            {error && (
+              <div style={{ padding: 'var(--space-3)', background: 'rgba(239, 68, 68, 0.1)', color: 'var(--error)', borderRadius: 'var(--radius-md)', marginBottom: 'var(--space-4)', fontSize: 'var(--fs-sm)', border: '1px solid var(--error)' }}>
+                {error}
+              </div>
+            )}
             <form onSubmit={handleLogin}>
               <div style={{ marginBottom: 'var(--space-4)' }}>
                 <label style={{ display: 'block', marginBottom: 'var(--space-2)', fontSize: 'var(--fs-sm)', fontWeight: 500 }}>Email</label>
@@ -230,6 +241,11 @@ export default function Landing() {
             <p style={{ color: 'var(--text-muted)', marginBottom: 'var(--space-6)', fontSize: 'var(--fs-sm)' }}>
               Bắt đầu hành trình học Tiếng Anh! 🚀
             </p>
+            {error && (
+              <div style={{ padding: 'var(--space-3)', background: 'rgba(239, 68, 68, 0.1)', color: 'var(--error)', borderRadius: 'var(--radius-md)', marginBottom: 'var(--space-4)', fontSize: 'var(--fs-sm)', border: '1px solid var(--error)' }}>
+                {error}
+              </div>
+            )}
             <form onSubmit={handleRegister}>
               <div style={{ marginBottom: 'var(--space-4)' }}>
                 <label style={{ display: 'block', marginBottom: 'var(--space-2)', fontSize: 'var(--fs-sm)', fontWeight: 500 }}>Tên hiển thị</label>
