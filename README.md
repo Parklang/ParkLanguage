@@ -2,7 +2,7 @@
 
 ParkLanguage là một ứng dụng web học Tiếng Anh toàn diện được xây dựng trên nền tảng **MERN Stack** (MongoDB, Express, React, Node.js). Ứng dụng kết hợp phương pháp học hiện đại với hệ thống **Gamification** giúp người học duy trì động lực và đạt hiệu quả cao nhất.
 
-<img width="1413" height="226" alt="Image" src="https://github.com/user-attachments/assets/44dc2d9e-2a0e-4b86-9315-0f70a4adc8ac" /> *Link demo: [https://park-language.vercel.app](https://park-language.vercel.app)*
+<img width="1917" height="870" alt="Image" src="https://github.com/user-attachments/assets/90eeb94e-79a6-4b22-93c2-2c8ffbdb946a" /> *Link demo: [https://park-language.vercel.app](https://park-language.vercel.app)*
 
 ---
 
