@@ -9,22 +9,18 @@ export default function Landing() {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [stack, setStack] = useState('');
   const { login, register } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setError('');
-    setStack('');
     try {
       await login(formData.email, formData.password);
       navigate('/dashboard');
     } catch (err) {
       console.error(err);
       setError(err.response?.data?.message || 'Không thể kết nối đến server');
-      setStack(err.response?.data?.stack || '');
     }
     setIsLoading(false);
   };
@@ -32,15 +28,12 @@ export default function Landing() {
   const handleRegister = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setError('');
-    setStack('');
     try {
       await register(formData.username, formData.email, formData.password);
       navigate('/dashboard');
     } catch (err) {
       console.error(err);
       setError(err.response?.data?.message || 'Không thể tạo tài khoản');
-      setStack(err.response?.data?.stack || '');
     }
     setIsLoading(false);
   };
@@ -49,7 +42,6 @@ export default function Landing() {
     setShowLogin(false);
     setShowRegister(false);
     setError('');
-    setStack('');
     setFormData({ username: '', email: '', password: '' });
   };
 
@@ -193,9 +185,8 @@ export default function Landing() {
               Chào mừng bạn trở lại! 👋
             </p>
             {error && (
-              <div style={{ padding: 'var(--space-3)', background: 'rgba(239, 68, 68, 0.1)', color: 'var(--error)', borderRadius: 'var(--radius-md)', marginBottom: 'var(--space-4)', fontSize: 'var(--fs-xs)', border: '1px solid var(--error)', overflow: 'hidden' }}>
-                <div style={{ fontWeight: 'bold', marginBottom: 'var(--space-1)', fontSize: 'var(--fs-sm)' }}>{error}</div>
-                {stack && <pre style={{ whiteSpace: 'pre-wrap', maxHeight: '100px', overflowY: 'auto', marginTop: 'var(--space-2)', opacity: 0.8 }}>{stack}</pre>}
+              <div style={{ padding: 'var(--space-3)', background: 'rgba(239, 68, 68, 0.1)', color: 'var(--error)', borderRadius: 'var(--radius-md)', marginBottom: 'var(--space-4)', fontSize: 'var(--fs-sm)', border: '1px solid var(--error)' }}>
+                {error}
               </div>
             )}
             <form onSubmit={handleLogin}>
@@ -249,9 +240,8 @@ export default function Landing() {
               Bắt đầu hành trình học Tiếng Anh! 🚀
             </p>
             {error && (
-              <div style={{ padding: 'var(--space-3)', background: 'rgba(239, 68, 68, 0.1)', color: 'var(--error)', borderRadius: 'var(--radius-md)', marginBottom: 'var(--space-4)', fontSize: 'var(--fs-xs)', border: '1px solid var(--error)', overflow: 'hidden' }}>
-                <div style={{ fontWeight: 'bold', marginBottom: 'var(--space-1)', fontSize: 'var(--fs-sm)' }}>{error}</div>
-                {stack && <pre style={{ whiteSpace: 'pre-wrap', maxHeight: '100px', overflowY: 'auto', marginTop: 'var(--space-2)', opacity: 0.8 }}>{stack}</pre>}
+              <div style={{ padding: 'var(--space-3)', background: 'rgba(239, 68, 68, 0.1)', color: 'var(--error)', borderRadius: 'var(--radius-md)', marginBottom: 'var(--space-4)', fontSize: 'var(--fs-sm)', border: '1px solid var(--error)' }}>
+                {error}
               </div>
             )}
             <form onSubmit={handleRegister}>
