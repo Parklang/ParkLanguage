@@ -1,0 +1,284 @@
+.vocab-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Controls */
+.vocab-controls {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.vocab-search {
+  flex: 1;
+  position: relative;
+  min-width: 200px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--fs-sm);
+  pointer-events: none;
+}
+
+.vocab-search .input-field {
+  padding-left: 40px;
+}
+
+.vocab-view-toggle {
+  display: flex;
+  gap: var(--space-1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 3px;
+}
+
+.view-btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.view-btn--active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Categories */
+.vocab-categories {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+  text-transform: capitalize;
+}
+
+.category-btn:hover,
+.category-btn--active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Flashcard */
+.vocab-flashcard-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flashcard-counter {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+.flashcard {
+  width: 100%;
+  max-width: 450px;
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+  margin-bottom: var(--space-6);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-2xl);
+  backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-lg);
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+.flashcard--flipped .flashcard-front {
+  transform: rotateY(180deg);
+}
+
+.flashcard--flipped .flashcard-back {
+  transform: rotateY(360deg);
+}
+
+.flashcard-word {
+  font-family: var(--font-heading);
+  font-size: var(--fs-4xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.flashcard-pronunciation {
+  font-size: var(--fs-lg);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.flashcard-speak {
+  margin-top: var(--space-2);
+}
+
+.flashcard-hint {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.flashcard-meaning {
+  font-family: var(--font-heading);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.flashcard-example {
+  text-align: center;
+  margin-top: var(--space-2);
+}
+
+.example-en {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-1);
+}
+
+.example-vi {
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+}
+
+.flashcard-nav {
+  display: flex;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 450px;
+}
+
+.flashcard-nav .btn {
+  flex: 1;
+}
+
+.flashcard-nav .btn:disabled {
+  opacity: 0.3;
+}
+
+/* List Mode */
+.vocab-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.vocab-list-item {
+  padding: var(--space-4) var(--space-5);
+  animation: fadeIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.vocab-item-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.vocab-item-word-section {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.vocab-item-word {
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  color: var(--text-primary);
+}
+
+.vocab-item-pronunciation {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.vocab-item-meaning {
+  font-weight: 600;
+  color: var(--primary-light);
+  font-size: var(--fs-sm);
+}
+
+.vocab-item-details {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.vocab-item-example {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Empty State */
+.vocab-empty {
+  text-align: center;
+  padding: var(--space-16) 0;
+  color: var(--text-muted);
+}
+
+.vocab-empty p {
+  margin-top: var(--space-4);
+  font-size: var(--fs-lg);
+}
+
+@media (max-width: 600px) {
+  .vocab-controls {
+    flex-direction: column;
+  }
+
+  .flashcard {
+    height: 280px;
+  }
+
+  .flashcard-word {
+    font-size: var(--fs-3xl);
+  }
+
+  .flashcard-meaning {
+    font-size: var(--fs-2xl);
+  }
+}

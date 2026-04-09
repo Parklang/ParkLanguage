@@ -1,0 +1,61 @@
+.levelup-modal {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.levelup-confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  animation: confetti-fall 3s ease-in forwards;
+}
+
+.levelup-emoji {
+  font-size: 72px;
+  margin-bottom: var(--space-4);
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.levelup-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-4xl);
+  font-weight: 800;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-4);
+}
+
+.levelup-level {
+  margin-bottom: var(--space-4);
+}
+
+.levelup-level-num {
+  font-family: var(--font-heading);
+  font-size: var(--fs-5xl);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.levelup-text {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+  font-size: var(--fs-lg);
+}

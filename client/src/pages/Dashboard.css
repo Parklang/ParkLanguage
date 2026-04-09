@@ -1,0 +1,357 @@
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Welcome */
+.dashboard-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.dashboard-level-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  min-width: 280px;
+}
+
+.level-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.level-number {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.level-title {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.level-progress {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.level-xp-text {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  text-align: right;
+}
+
+/* Stats Grid */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.stat-icon--streak { background: rgba(245, 158, 11, 0.15); }
+.stat-icon--xp { background: rgba(124, 58, 237, 0.15); }
+.stat-icon--lessons { background: rgba(6, 182, 212, 0.15); }
+.stat-icon--words { background: rgba(16, 185, 129, 0.15); }
+
+.stat-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-6);
+}
+
+.dashboard-daily,
+.dashboard-continue,
+.dashboard-achievements,
+.dashboard-actions {
+  padding: var(--space-6);
+}
+
+.dashboard-daily h3,
+.dashboard-continue h3,
+.dashboard-achievements h3,
+.dashboard-actions h3 {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-5);
+}
+
+/* Daily Goal */
+.daily-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.daily-header h3 {
+  margin-bottom: 0;
+}
+
+.daily-goal-text {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.daily-progress-ring-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto var(--space-4);
+}
+
+.daily-ring {
+  width: 100%;
+  height: 100%;
+}
+
+.daily-ring-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.daily-ring-percent {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.daily-ring-label {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.daily-complete-text {
+  text-align: center;
+  color: var(--success);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Continue Learning */
+.continue-lesson {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.continue-lesson-level {
+  align-self: flex-start;
+}
+
+.continue-lesson-title {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.continue-lesson-desc {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-3);
+}
+
+.continue-lesson-meta {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.continue-empty {
+  text-align: center;
+  padding: var(--space-6) 0;
+  color: var(--text-secondary);
+}
+
+.continue-empty p {
+  margin-bottom: var(--space-4);
+}
+
+/* Achievements */
+.achievements-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.achievements-header h3 {
+  margin-bottom: 0;
+}
+
+.achievements-link {
+  font-size: var(--fs-sm);
+  color: var(--primary-light);
+  font-weight: 500;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.achievement-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--bg-tertiary);
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+
+.achievement--unlocked {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.achievement--locked {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+.achievement-icon {
+  font-size: 28px;
+}
+
+.achievement-name {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Quick Actions */
+.actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.action-item:hover {
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+.action-icon {
+  font-size: var(--fs-lg);
+}
+
+.action-text {
+  flex: 1;
+  font-weight: 500;
+  font-size: var(--fs-sm);
+}
+
+.action-arrow {
+  color: var(--text-muted);
+  transition: transform var(--transition-fast);
+}
+
+.action-item:hover .action-arrow {
+  transform: translateX(4px);
+  color: var(--primary-light);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-level-card {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

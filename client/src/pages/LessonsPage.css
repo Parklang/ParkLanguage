@@ -1,0 +1,203 @@
+.lessons-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Level Filter */
+.lessons-levels {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.level-filter-btn {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.level-filter-btn:hover,
+.level-filter-btn--active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Learning Path */
+.learning-path {
+  position: relative;
+  padding: var(--space-4) 0;
+}
+
+.path-node {
+  position: relative;
+  margin-bottom: var(--space-8);
+}
+
+.path-node-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.path-node--right .path-node-content {
+  flex-direction: row-reverse;
+}
+
+/* Connector */
+.path-connector {
+  position: absolute;
+  left: 28px;
+  top: 58px;
+  bottom: -32px;
+  width: 3px;
+  background: var(--bg-tertiary);
+  z-index: 0;
+}
+
+.path-connector--done {
+  background: var(--gradient-primary);
+}
+
+.path-node--right .path-connector {
+  left: auto;
+  right: 28px;
+}
+
+/* Circle */
+.path-node-circle {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+  border: 3px solid var(--bg-tertiary);
+  background: var(--bg-secondary);
+  transition: all var(--transition-base);
+}
+
+.path-node-circle--success {
+  border-color: var(--success);
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+.path-node-circle--primary {
+  border-color: var(--primary);
+  background: rgba(124, 58, 237, 0.15);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.path-node-circle--accent {
+  border-color: var(--accent);
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.path-node-circle--muted {
+  opacity: 0.5;
+}
+
+.path-node-icon {
+  font-size: 22px;
+}
+
+.path-node-number {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+/* Card */
+.path-node-card {
+  flex: 1;
+  padding: var(--space-5);
+  max-width: 500px;
+}
+
+.path-node--locked .path-node-card {
+  opacity: 0.6;
+}
+
+.path-node-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.path-node-category {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.path-node-title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.path-node-subtitle {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-3);
+}
+
+.path-node-meta {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.path-node-score {
+  font-size: var(--fs-xs);
+  color: var(--success);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.path-node-btn {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .path-node--right .path-node-content {
+    flex-direction: row;
+  }
+
+  .path-node--right .path-connector {
+    left: 28px;
+    right: auto;
+  }
+
+  .path-node-card {
+    max-width: none;
+  }
+}
